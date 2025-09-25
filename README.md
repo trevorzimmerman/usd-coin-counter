@@ -4,27 +4,37 @@ This Python project detects coins from a camera feed and calculates the total am
 
 ## Installation
 
-1. Clone the repo:
-    ```
-    git clone https://github.com/trevorzimmerman/usd-coin-counter.git
-    cd usd-coin-counter
-    ```
-2. Create a virtual environment and activate it:
-    ```
-    python -m venv coinenv
-    source coinenv/bin/activate  # On Windows: coinenv\Scripts\activate
-    ```
-3. Install dependencies:
-    ```
-    pip install -r requirements.txt
-    ```
+For **Linux / macOS**
+   ```
+   git clone https://github.com/trevorzimmerman/usd-coin-counter.git
+   cd usd-coin-counter
+   python3 -m venv coinenv
+   source coinenv/bin/activate
+   pip install -r requirements.txt
+   ```
+For **Windows (Git Bash)**
+   ```
+   git clone https://github.com/trevorzimmerman/usd-coin-counter.git
+   cd usd-coin-counter
+   python -m venv coinenv
+   source coinenv/Scripts/activate
+   pip install -r requirements.txt
+   ```
+For **Windows (CMD / PowerShell)**
+   ```
+   git clone https://github.com/trevorzimmerman/usd-coin-counter.git
+   cd usd-coin-counter
+   python -m venv coinenv
+   .\coinenv\Scripts\activate
+   pip install -r requirements.txt
+   ```
 
 ## Usage
 
 Run the main script:
-    ```
-    python main.py
-    ```
+   ```
+   python main.py
+   ```
 
 ### Connecting Your Android Phone
 
@@ -40,8 +50,19 @@ To use your Android phone as the camera feed:
     ```
 6. This script was tested on a phone with **1920×1080 resolution**. Other resolutions may cause scaling issues with annotations.
 
+## Output
+
+All processed files are saved in the project folder:
+
+- **Pictures:** `usd-coin-counter/pictures`  
+- **Videos:** `usd-coin-counter/videos`  
+
+Files are saved here depending on whether you record images or videos.
+
 ## Notes
 
 - This project was completed as the final research project for **CS7367: Machine Vision**.
 - Uses `inference`, `supervision`, `OpenCV`, `requests`, and `numpy`.
 - A virtual environment is recommended to avoid dependency conflicts.
+
+For viewing a demonstration of the coin detection script, including multiple runs and the Roboflow model QR code, please see the project page: [CS 7367 – Machine Vision Project Page](https://trevorzimmerman.github.io/university/cs7367-machine-vision.md)
