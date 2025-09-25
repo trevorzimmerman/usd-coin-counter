@@ -12,18 +12,11 @@ For **Linux / macOS**
    source coinenv/bin/activate
    pip install -r requirements.txt
    ```
-For **Windows (Git Bash)**
-   ```
-   git clone https://github.com/trevorzimmerman/usd-coin-counter.git
-   cd usd-coin-counter
-   python -m venv coinenv
-   source coinenv/Scripts/activate
-   pip install -r requirements.txt
-   ```
 For **Windows (CMD / PowerShell)**
    ```
    git clone https://github.com/trevorzimmerman/usd-coin-counter.git
    cd usd-coin-counter
+   Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
    python -m venv coinenv
    .\coinenv\Scripts\activate
    pip install -r requirements.txt
