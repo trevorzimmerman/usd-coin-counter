@@ -8,8 +8,8 @@ For **Linux / macOS**
    ```
    git clone https://github.com/trevorzimmerman/usd-coin-counter.git
    cd usd-coin-counter
-   python3 -m venv coinenv
-   source coinenv/bin/activate
+   python3 -m venv ../coinenv
+   source ../coinenv/bin/activate
    pip install -r requirements.txt
    ```
 For **Windows (CMD / PowerShell)**
@@ -17,8 +17,8 @@ For **Windows (CMD / PowerShell)**
    git clone https://github.com/trevorzimmerman/usd-coin-counter.git
    cd usd-coin-counter
    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-   python -m venv coinenv
-   .\coinenv\Scripts\activate
+   python -m venv ../coinenv
+   ../coinenv/Scripts/activate
    pip install -r requirements.txt
    ```
 
