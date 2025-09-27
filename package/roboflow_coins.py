@@ -43,8 +43,11 @@ class RoboflowCoins():
         self.buttonS3 = "SAVE JPG: 's' OR LEFT CLICK"
         self.buttonS4 = "PICTURE SAVED"
         self.buttonS5 = ["RECORDING","RECORDING.","RECORDING..","RECORDING..."]
-        os.makedirs('./pictures', exist_ok=True)
-        os.makedirs('./videos', exist_ok=True)
+        base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        self.pictures_dir = os.path.join(base_dir, "pictures")
+        self.videos_dir = os.path.join(base_dir, "videos")
+        os.makedirs(self.pictures_dir, exist_ok=True)
+        os.makedirs(self.videos_dir, exist_ok=True)
         self.fontScale = 6
         self.fontScale1 = 3
         self.color1 = (0, 0, 0)
@@ -232,8 +235,9 @@ class RoboflowCoins():
         if key == 27 or self.mc == 1: # exit on ESC
             self.Esc = True
         if key == 115 or self.lc == 1: # save image with s key
-            filename = ('./pictures/total-{date:%Y%m%d%H%M%S}.jpg'.format(
-                                                date=datetime.datetime.now()))
+            filename = os.path.join(self.pictures_dir,
+                                    'total-{date:%Y%m%d%H%M%S}.jpg'.format(
+                                    date=datetime.datetime.now()))
             cv2.imwrite(filename, self.annotated_image)
             print('Image saved as: ' + filename)
             self.p = 1
@@ -241,8 +245,9 @@ class RoboflowCoins():
         if key == 114 or self.rc == 1: # start/stop record with r key
             if self.r == 0:
                 fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-                self.mp4name = ('./videos/total{date:%Y%m%d%H%M%S}.mp4'.format(
-                                                date=datetime.datetime.now()))
+                self.mp4name = os.path.join(self.videos_dir, 
+                                        'total{date:%Y%m%d%H%M%S}.mp4'.format(
+                                        date=datetime.datetime.now()))
                 self.out = cv2.VideoWriter(self.mp4name, fourcc, 2.0, (
                                                 self.annotated_image.shape[1],
                                                 self.annotated_image.shape[0]))
